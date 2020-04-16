@@ -2,26 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
-## Development server
+Problem Statement:To design a Telephone Directory application with following features:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Implement a class Person with parameters name (str), mobile (int), age (number), and address (string) with suitable other parameters & getters and setters.
 
-## Code scaffolding
+2. Create 20 objects of Person and render the list using *ngFor, printing name and mobile number only and sorted alphabetically by name in the left quarter of screen.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Implement a pipe named filter to mimic functionality of Angular JS’s filter called filter. Cover the cases described in Example 1 and Example 2 in from this description: https://www.geeksforgeeks.org/angularjs-filter-filter/
 
-## Build
+4. Add a search bar on top of the Person list to filter Persons as the user would type in it using a filter pipe implemented in 3 on the basis of name & mobile number.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5. When clicked on a rendered person object, save his suitable details in local storage. On page reload, automatically select the person saved in local storage, else select first in list.
 
-## Running unit tests
+6. Create a child component, and render all details of the selected Person on right half of the screen using angular’s Input.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+7. Bonus: Implement feature to edit the mobile number of selected person in the child component created in 6. Edited mobile number should reflect in the rendered list of Persons after the edit is saved.
