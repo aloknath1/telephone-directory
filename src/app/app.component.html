@@ -1,0 +1,78 @@
+<style>
+  .content {
+    display: flex;  
+    padding: 0 16px;    
+    flex-direction: column;
+  }
+
+.first-div,.second-div{
+  width:50%;
+  float:left;
+}
+  .table{
+    margin:20px;
+    padding:0;
+    width:100%;
+    border:1px solid #000;
+  }
+  .table td{
+    text-align:center;
+    border:0;
+    padding:5px;
+    border-bottom:1px solid #000;
+  }
+  .table td:last-child{border-right:1px solid #000;}
+  .table tr.active td {
+  background-color:#123456;
+  color: white;
+}
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+ 
+  <span>Welcome to {{title}}</span>
+   
+</div>
+
+<div class="content" role="main">
+  <div class="first-div">
+  <form>
+      <div class="form-group">
+          <div class="input-group">
+              <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+              <input type="text" class="form-control" name="searchString" placeholder="Type to search...">
+          </div>
+      </div>
+  </form>
+  
+  <table border="1" class="table" cellspacing="0" cellpadding="0">
+    <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Age</th>
+        <th>Address</th>        
+    </tr>
+    <tr *ngFor = "let dir of directory" (click)="onSelect(dir)" [class.active]="dir.name == currentName">
+      <td>{{dir.name}}</td>
+      <td>{{dir.mobile}}</td>
+      <td>{{dir.age}}</td>
+      <td>{{dir.address}}</td>
+    </tr>
+  </table>
+</div>
+<div class="second-div">
+    <p>Selected Details</p>
+    <div *ngFor = "let el of selectedArr">
+    <label>Name:</label>
+    {{el.name}}
+    <label>Mobile:</label>
+    {{el.mobile}}
+    <label>Age:</label>
+    {{el.age}}
+    <label>Address:</label>
+    {{el.address}}
+    </div>
+</div>
+</div>
+
