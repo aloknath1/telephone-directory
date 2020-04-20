@@ -37,14 +37,7 @@
 
 <div class="content" role="main">
   <div class="first-div">
-  <form>
-      <div class="form-group">
-          <div class="input-group">
-              <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
-              <input type="text" class="form-control" name="searchString" placeholder="Type to search...">
-          </div>
-      </div>
-  </form>
+  
   
   <table border="1" class="table" cellspacing="0" cellpadding="0">
     <tr>
@@ -62,16 +55,19 @@
   </table>
 </div>
 <div class="second-div">
-    <p>Selected Details</p>
-    <div *ngFor = "let el of selectedArr">
+    <p>Selected Details</p>   
+    <div *ngIf="show">
     <label>Name:</label>
-    {{el.name}}
+    {{selectedArr.name}}
+    <br/>
     <label>Mobile:</label>
-    {{el.mobile}}
+    {{selectedArr.mobile}}
+    <br/>
     <label>Age:</label>
-    {{el.age}}
+    {{selectedArr.age}}
+    <br/>
     <label>Address:</label>
-    {{el.address}}
+    {{selectedArr.address}}
     </div>
 </div>
 </div>

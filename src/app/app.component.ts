@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+@Injectable()
+export class AppComponent implements OnInit{
   title = 'Telephone Directory';
   public searchString: string;
-  selectedArr = []; 
+  selectedArr: any; 
   currentName = '';
-  
+  obj:{ search: ''};
+  show = false;
+  ngOnInit(){
+    this.onload();
+    
+  }
+
+  column: any[] = ['name','mobile'];
 // declared array of objects. 
    directory = [       
         {name:'Alok1',mobile:'9319855061',age:'34',address:'Delhi'},
@@ -32,14 +41,17 @@ export class AppComponent {
         {name:'Alok17',mobile:'557575725',age:'34',address:'Delhi'},
         {name:'Alok18',mobile:'434656453',age:'34',address:'Delhi'},
         {name:'Alok19',mobile:'343253663',age:'34',address:'Delhi'},
-        {name:'Alok20',mobile:'234234235',age:'34',address:'Delhi'},   
+        {name:'Alok20',mobile:'234234235',age:'34',address:'Delhi'} 
    ];
 
-    onload();
+    
 
    onload(){
      if(localStorage.getItem('dataSource')){
-        this.selectedArr = JSON.parse(localStorage.getItem('dataSource'));
+        this.show = true;
+        //this.selectedArr = localStorage.getItem('dataSource');
+         this.selectedArr = JSON.parse(localStorage.getItem('dataSource'));
+        console.log(JSON.stringify(this.selectedArr));
      }
    }
 
@@ -48,5 +60,8 @@ export class AppComponent {
       console.log(row);
       //store selected data to localStorage
       localStorage.setItem('dataSource', JSON.stringify(row));
+      this.show = true;
+      // localStorage.setItem('dataSource',row);
+      this. onload();
   }
 }
